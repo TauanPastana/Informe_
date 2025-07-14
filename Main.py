@@ -1,10 +1,13 @@
 
-from Classes import G1, CNN
+from Classes import G1, CNN, Folha
 
-site1 = G1()
+site1 = Folha()
 site1.imprimir_informacao()
-site = CNN()
+site = G1()
 site.imprimir_informacao()
+site2 = CNN()
+site2.imprimir_informacao()
+
 
 
 
