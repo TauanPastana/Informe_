@@ -11,5 +11,5 @@ class CNN(Sites):
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
         Noticias = soup.find_all( class_="text-gray-950 hover:underline")
-        dict_noticias = {"CNN": { noticia.text: noticia.get('href')  for noticia in Noticias}}
+        dict_noticias = {"CNN": { noticia.h2.text: noticia.a['href']  for noticia in Noticias}}
         return dict_noticias
