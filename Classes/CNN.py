@@ -10,6 +10,6 @@ class CNN(Sites):
         url = "https://www.cnnbrasil.com.br/ultimas-noticias/"
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
-        Noticias = soup.find_all( class_="text-gray-950 hover:underline")
+        Noticias = soup.find_all('div', class_="flex flex-col gap-4")
         dict_noticias = {"CNN ": { noticia.h2.text: noticia.a['href']  for noticia in Noticias}}
         return dict_noticias
