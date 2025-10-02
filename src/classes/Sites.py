@@ -1,3 +1,4 @@
+import webbrowser as wb
 import datetime as dt
 
 class Sites():
@@ -11,10 +12,21 @@ class Sites():
     def imprimir_informacao(self):
         # autalizacao = dt.datetime.now()
         print(f"Noticias -- Ultima atualização às {dt.datetime.now().strftime('%H:%M:%S')} de {dt.date.today()} ")
-        for noticia, link in self.noticias.items():
-            print(f"{noticia}-- Link: {link} \n")
+        for id, noticia in self.noticias.items():
+            print(f"{id} - {noticia["Noticias"]} -- Link: {noticia["Link"]} \n")
                     
+    def getSite(self):
+        opc = int(input("Digite o ID relacionado a noticia que deseja acessar: "))
+        dict_get:dict = self.noticias.get(opc)
+        self.abrir_link(dict_get.get('Link'))
 
+    def abrir_link(self, url):
+        try:
+            wb.open(url)
+        except:
+            print("Erro ao abrir o link")
+        
+        
     
             
 

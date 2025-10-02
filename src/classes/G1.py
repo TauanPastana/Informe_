@@ -11,7 +11,9 @@ class G1(Sites):
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
         noticias = soup.find_all('a', class_='feed-post-link gui-color-primary gui-color-hover')
-        dict_noticias = {noticia.text: noticia.get('href') for noticia in noticias}
-                    
+        # dict_noticias = {noticia.text: noticia.get('href') for noticia in noticias}
+        dict_noticias = {}
+        for id, noticia in enumerate(noticias):
+            dict_noticias[id] = {"Noticias": noticia.text, "Link": noticia.get("href")}
         return dict_noticias
 

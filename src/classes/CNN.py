@@ -11,5 +11,8 @@ class CNN(Sites):
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
         Noticias = soup.find_all('div', class_="flex flex-col gap-4")
-        dict_noticias = { noticia.h2.text: noticia.a['href']  for noticia in Noticias}
+        # dict_noticias = { noticia.h2.text: noticia.a['href']  for noticia in Noticias}
+        dict_noticias = {}
+        for id, noticia in enumerate(Noticias):
+            dict_noticias[id] = {noticia.text: noticia.a['href']}
         return dict_noticias

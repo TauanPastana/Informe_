@@ -17,6 +17,7 @@ def menu():
             if opcao == "1":
                 site1 = Folha()
                 site1.imprimir_informacao()
+                site1.getSite()
             elif opcao == "2":
                 site = G1()
                 site.imprimir_informacao()
