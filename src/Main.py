@@ -1,8 +1,7 @@
-from Classes import Folha, G1, CNN
-folha = G1()
-print(folha.quantidade)
+from classes import Folha, G1, CNN
 
-def menu(self):
+
+def menu():
         while True:
             print("Bem vindo ao Informe\n")
             print(
@@ -29,6 +28,7 @@ def menu(self):
                 break
             else:
                 print("Opção inválida. Tente novamente.")
+menu()
 
 
 
