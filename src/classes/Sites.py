@@ -16,15 +16,23 @@ class Sites():
             print(f"{id} - {noticia["Noticias"]} -- Link: {noticia["Link"]} \n")
                     
     def getSite(self):
-        opc = int(input("Digite o ID relacionado a noticia que deseja acessar: "))
-        dict_get:dict = self.noticias.get(opc)
-        self.abrir_link(dict_get.get('Link'))
+        print(type(list(self.noticias.keys())[0]))
+        opc = input("Se deseja ler alguma dessas noticias, digite o id correspondente a mesma\nCaso ao contrário, precione qualquer tecla: ")
+        chaves = list(self.noticias.keys())
+        if opc in chaves:
+            print("tá pegando")
+            dict_get:dict = self.noticias.get(opc)
+            self.abrir_link(dict_get.get('Link'))
+
+        
 
     def abrir_link(self, url):
         try:
             wb.open(url)
         except:
             print("Erro ao abrir o link")
+
+    
         
         
     

@@ -14,5 +14,5 @@ class CNN(Sites):
         # dict_noticias = { noticia.h2.text: noticia.a['href']  for noticia in Noticias}
         dict_noticias = {}
         for id, noticia in enumerate(Noticias):
-            dict_noticias[id] = {noticia.text: noticia.a['href']}
+            dict_noticias[str(id)] = {"Noticias":noticia.text, "Link": noticia.a['href']}
         return dict_noticias

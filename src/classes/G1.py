@@ -14,6 +14,6 @@ class G1(Sites):
         # dict_noticias = {noticia.text: noticia.get('href') for noticia in noticias}
         dict_noticias = {}
         for id, noticia in enumerate(noticias):
-            dict_noticias[id] = {"Noticias": noticia.text, "Link": noticia.get("href")}
+            dict_noticias[str(id)] = {"Noticias": noticia.text, "Link": noticia.get("href")}
         return dict_noticias
 

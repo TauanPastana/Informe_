@@ -17,6 +17,6 @@ class Folha(Sites):
         for id, noticia in enumerate(noticias):
             if id > 10:
                 break
-            dict_noticias[id] = {"Noticias":noticia.h2.text,"Link":noticia.a['href']}
+            dict_noticias[str(id)] = {"Noticias":noticia.h2.text,"Link":noticia.a['href']}
 
         return dict_noticias
