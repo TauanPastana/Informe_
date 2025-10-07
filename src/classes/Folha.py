@@ -20,3 +20,5 @@ class Folha(Sites):
             dict_noticias[str(id)] = {"Noticias":noticia.h2.text,"Link":noticia.a['href']}
 
         return dict_noticias
+    def update_atualizacao(self):
+        self.noticias = self.raspagem_folha()

@@ -17,3 +17,9 @@ class G1(Sites):
             dict_noticias[str(id)] = {"Noticias": noticia.text, "Link": noticia.get("href")}
         return dict_noticias
 
+    def update_atualizacao(self):
+        self.noticias = self.raspagem_g1()
+
+        
+
+

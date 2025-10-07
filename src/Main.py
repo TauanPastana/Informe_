@@ -1,7 +1,8 @@
 from classes.menu import Menu
 
 def main():
-    Menu.menu()
+    menu = Menu()
+    menu.menu()
 main()
 
 
