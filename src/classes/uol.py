@@ -8,7 +8,10 @@ class Uol(Sites):
 
     def raspagem_uol(self) -> dict:
         headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    "User-Agent": 
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/86.0.4240.198 Safari/537.36"
 }
         url = "https://noticias.uol.com.br/ultimas/"
         response = requests.get(url, headers=headers)
