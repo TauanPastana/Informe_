@@ -15,7 +15,7 @@ class Sites():
         # autalizacao = dt.datetime.now()
         print(f"Noticias -- Ultima atualização às {dt.datetime.now().strftime('%H:%M:%S')} de {dt.date.today().strftime('%d-%m-%Y')}")
         for id, noticia in self.noticias.items():
-            print(f"{id} - {noticia["Noticias"]}\n")
+            print(f"{id} - {noticia["Noticias"].strip()}\n")
                     
     def getSite(self):
         opc = input("Se deseja ler alguma dessas noticias, digite o id correspondente a mesma\nCaso ao contrário, precione qualquer tecla: ")
