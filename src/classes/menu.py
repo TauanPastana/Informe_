@@ -1,4 +1,4 @@
-from classes import G1, CNN, Uol, Band
+from classes import G1, CNN, Band
 
 class Menu():
     def __init__(self):
@@ -13,8 +13,7 @@ class Menu():
                 "Selecione uma opção:\n"
                 "  1 - Exibir as últimas notícias do G1\n"
                 "  2 - Exibir as últimas notícias da CNN\n"
-                "  3 - Exibir as últimas notícias do UOL\n"
-                "  4 - Exibir as últimas notícias da Band\n"
+                "  3 - Exibir as últimas notícias da Band\n"
                 "  0 - Sair\n"
             )
 
@@ -29,12 +28,6 @@ class Menu():
                 self.cnn.imprimir_informacao()
                 self.cnn.getSite()
             elif opcao == "3":
-                self.uol = Uol()
-                self.uol.update_atualizacao()
-                self.uol.imprimir_informacao()
-                self.uol.getSite()
-                del self.uol
-            elif opcao == "4":
                 self.band.update_atualizacao()
                 self.band.imprimir_informacao()
                 self.band.getSite()

@@ -3,6 +3,6 @@ from .G1 import G1
 from .cnn import CNN
 from.band import Band
 
-from.uol import Uol
 
-__all__ = ['Sites', 'G1', 'cnn', 'Uol', 'Band']
+
+__all__ = ['Sites', 'G1', 'cnn', 'Band']
