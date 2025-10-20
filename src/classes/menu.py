@@ -1,4 +1,4 @@
-from classes import G1, CNN, Band
+from classes import G1, CNN, Band, Sites
 
 class Menu():
     def __init__(self):
@@ -6,7 +6,15 @@ class Menu():
         self.cnn = CNN()
         self.band = Band()
         
+ 
+    def _exibir_site(self, site):
+        site.update_atualizacao()
+        site.imprimir_informacao()
+        site.getSite()
+        Sites.clear_terminal()
+
     def menu(self):
+        mapping = {"1": self.g1, "2": self.cnn, "3": self.band}
         while True:
             print("Bem-vindo ao Informe. O portal que reúne todas as últimas informações dos maiores portais de notícias do Brasil.")
             print(
@@ -18,21 +26,14 @@ class Menu():
             )
 
             opcao = input("Digite a opção desejada: ")
-            
-            if opcao == "1":
-                self.g1.update_atualizacao()
-                self.g1.imprimir_informacao()
-                self.g1.getSite()
-            elif opcao == "2":
-                self.cnn.update_atualizacao()
-                self.cnn.imprimir_informacao()
-                self.cnn.getSite()
-            elif opcao == "3":
-                self.band.update_atualizacao()
-                self.band.imprimir_informacao()
-                self.band.getSite()
-            elif opcao == "0":
+
+            if opcao == "0":
                 print("Saindo...")
                 break
+
+            site = mapping.get(opcao)
+            if site:
+                self._exibir_site(site)
+
             else:
                 print("Opção inválida. Tente novamente.")
