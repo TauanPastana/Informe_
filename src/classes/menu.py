@@ -1,4 +1,6 @@
 from classes import G1, CNN, Band, Sites, Metropole
+from time import sleep
+import classes.Sites
 
 class Menu():
     def __init__(self):
@@ -34,6 +36,7 @@ class Menu():
             )
 
             opcao = input("Digite a opção desejada: ")
+            Sites.clear_terminal()
 
             if opcao == "0":
                 print("Saindo...")
@@ -44,3 +47,5 @@ class Menu():
                 self._exibir_site(site)
             else:
                 print("Opção inválida. Tente novamente.")
+                sleep(3)
+                Sites.clear_terminal()
