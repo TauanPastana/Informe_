@@ -1,6 +1,6 @@
 from classes import G1, CNN, Band, Sites, Metropole
 from time import sleep
-import classes.Sites
+from .utils import clear_terminal
 
 class Menu():
     def __init__(self):
@@ -15,7 +15,7 @@ class Menu():
         site.update_atualizacao()
         site.imprimir_informacao()
         site.getSite()
-        Sites.clear_terminal()
+        clear_terminal()
 
     def menu(self):
         mapping = {
@@ -36,7 +36,7 @@ class Menu():
             )
 
             opcao = input("Digite a opção desejada: ")
-            Sites.clear_terminal()
+            clear_terminal()
 
             if opcao == "0":
                 print("Saindo...")
@@ -48,4 +48,4 @@ class Menu():
             else:
                 print("Opção inválida. Tente novamente.")
                 sleep(3)
-                Sites.clear_terminal()
+                clear_terminal()
