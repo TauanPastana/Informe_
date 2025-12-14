@@ -1,9 +1,8 @@
 from classes.menu import Menu
 
-def main():
+if __name__ == "__main__":
     menu = Menu()
     menu.menu()
-main()
 
 
 
@@ -14,10 +13,7 @@ main()
 
 
 
-
-
-
-
+    
 
 
 

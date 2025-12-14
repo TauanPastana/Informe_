@@ -19,7 +19,7 @@ class Band(Sites):
             for id, noticia in enumerate(noticias):
                 if id == 11:
                     break
-                dict_noticias[str(id)] = Noticias(str(id), noticia.text, noticia.a['href'] )
+                dict_noticias[str(id)] = (Noticias( noticia.text, noticia.a['href'] ))
             return dict_noticias
         except:
             print("Erro, tente novamente!")

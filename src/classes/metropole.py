@@ -8,7 +8,7 @@ class Metropole(Sites):
         noticia = self.raspagem_metropole()
         super().__init__(noticia, 'Metrópole')
 
-    def raspagem_metropole(self):
+    def raspagem_metropole(self) -> dict: 
         try:
             url = "https://www.metropoles.com/ultimas-noticias"
             response = requests.get(url)
@@ -18,8 +18,8 @@ class Metropole(Sites):
             dict_noticias = {}
             for id, noticia in enumerate(resultados):
                 if id == 0:
-                    dict_noticias[str(id)] = Noticias(str(id), noticia.text, head[0].a['href'] )
-                dict_noticias[str(id)] = Noticias(str(id), noticia.text, noticia.a['href'] )
+                    dict_noticias[str(id)]=(Noticias(noticia.text, head[0].a['href'] ))
+                dict_noticias[str(id)] = (Noticias(noticia.text, noticia.a['href'] ))
             return dict_noticias
         except:
             print("Erro, tente novamente!")

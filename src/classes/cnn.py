@@ -16,7 +16,7 @@ class CNN(Sites):
             # dict_noticias = { noticia.h2.text: noticia.a['href']  for noticia in Noticias}
             dict_noticias = {}
             for id, noticia in enumerate(noticias):
-                dict_noticias[str(id)] = Noticias(str(id), noticia.text, noticia.a['href'] )
+                dict_noticias[str(id)] = (Noticias(noticia.text, noticia.a['href'] ))
             return dict_noticias
         except:
             print("Erro, tente novamente!")

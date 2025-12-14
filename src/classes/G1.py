@@ -16,7 +16,7 @@ class G1(Sites):
 
             dict_noticias = {}
             for id, noticia in enumerate(noticias):
-                dict_noticias[str(id)] = Noticias(str(id), noticia.text, noticia.get('href'))
+                dict_noticias[str(id)]=(Noticias(noticia.text, noticia.get('href')))
             return dict_noticias
         except:
             print("Erro, tente novamente!")

@@ -7,7 +7,7 @@ from time import sleep
 
 
 class Sites():
-    def __init__(self, noticias_object:dict[str,Noticias], nome:str ): # type: ignore
+    def __init__(self, noticias_object:dict[str, Noticias], nome:str ): # type: ignore
         self.noticias = noticias_object
         self.nome = nome
 
@@ -16,8 +16,8 @@ class Sites():
     def imprimir_informacao(self):
         # autalizacao = dt.datetime.now()
         print(f"Informe -- Noticias do portal {self.nome}      |Ultima atualização às {dt.datetime.now().strftime('%H:%M:%S')} de {dt.date.today().strftime('%d-%m-%Y')}|\n")
-        for noticia in self.noticias.values():
-            print(f"{noticia.id} - {noticia.noticia}")
+        for id, noticia in self.noticias.items():
+            print(f"{id} - {noticia.noticia}")
         
                     
     def getSite(self):
@@ -25,9 +25,16 @@ class Sites():
         if opc in self.noticias.keys():
             self.noticias.get(opc).abrir_link()
         else:
-            print("Id não existe, por favor, adicione um ID existente")
-            sleep(3)
-            self.getSite()
+            sleep(2)
+            return None
+        # Se o usuário digitou algo numérico (parece um id) mas não existe -> avisar e perguntar novamente
+
+        # Se o usuário pressionou qualquer outra tecla (ou apenas Enter), volta ao menu (não faz nada)
+        
+    
+    
+
+            
             
         
 

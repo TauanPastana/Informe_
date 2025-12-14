@@ -1,38 +1,31 @@
-from classes import G1, CNN, Band, Sites, Metropole
+
 from time import sleep
 from .utils import clear_terminal
+from.Gerenciador_noticias import Gerenciador_noticias
 
 class Menu():
     def __init__(self):
-        self.g1 = G1()
-        self.cnn = CNN()
-        self.band = Band()
-        self.metropole = Metropole()
-        
-        
- 
-    def _exibir_site(self, site):
-        site.update_atualizacao()
-        site.imprimir_informacao()
-        site.getSite()
-        clear_terminal()
+        self.manager = Gerenciador_noticias()
 
+    
     def menu(self):
         mapping = {
-            "1": self.g1,
-            "2": self.cnn,
-            "3": self.band,
-            "4": self.metropole
+            "1": 'g1',
+            "2": 'cnn',
+            "3": 'band',
+            "4": 'metropole',
+            "5": 'all'
         }
         while True:
             print("Bem-vindo ao Informe. O portal que reúne todas as últimas informações dos maiores portais de notícias do Brasil.")
             print(
-                "Selecione uma opção:\n"
-                "  1 - Exibir as últimas notícias do G1\n"
-                "  2 - Exibir as últimas notícias da CNN\n"
-                "  3 - Exibir as últimas notícias da Band\n"
-                "  4 - Exibir as últimas notícias da Metrópole\n"
-                "  0 - Sair\n"
+            "Selecione uma opção:\n"
+            "  1 - Exibir as últimas notícias do G1\n"
+            "  2 - Exibir as últimas notícias da CNN\n"
+            "  3 - Exibir as últimas notícias da Band\n"
+            "  4 - Exibir as últimas notícias da Metrópole\n"
+            "  5 - Visualizar todas as notícias\n"
+            "  0 - Sair\n"
             )
 
             opcao = input("Digite a opção desejada: ")
@@ -42,9 +35,10 @@ class Menu():
                 print("Saindo...")
                 break
 
+
             site = mapping.get(opcao)
             if site:
-                self._exibir_site(site)
+                self.manager.imprimir_site(site)
             else:
                 print("Opção inválida. Tente novamente.")
                 sleep(3)
