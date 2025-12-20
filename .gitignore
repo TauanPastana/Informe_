@@ -1,2 +1,5 @@
 __pycache__/
 Test_sites/
+.venv/
+
+db.sqlite3
