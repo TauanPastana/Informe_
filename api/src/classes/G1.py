@@ -37,7 +37,6 @@ def raspagem_G1(url):
         if not titulo_text:
             return None
 
-        # valida o texto extraído (não o dict ainda vazio)
         titulo_text = titulo_text.strip()
         if not titulo_text:
             return None
@@ -45,7 +44,6 @@ def raspagem_G1(url):
         noticias["titulo"] = titulo_text
 
 
-            # descrição pode não existir
         desc_el = soup.find("div", class_="medium-centered subtitle")
         noticias["descricao"] = desc_el.get_text(strip=True) if desc_el else ""
 
@@ -79,9 +77,7 @@ def noticias_G1() -> list:
     
     return lista_noticias
 
-dict_noticias = noticias_G1()
-for url in dict_noticias:
-    print(url['url'], "\n", url['publicado_em'])
+
 
 
 
