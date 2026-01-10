@@ -20,6 +20,7 @@ def raspagemCNN(url) -> dict | None:
         "imagem": "",
         "publicado_em": None,
         "url": url,
+        "portal": "cnn"
     }
 
     try:

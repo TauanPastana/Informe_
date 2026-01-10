@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 def raspagem_G1(url):
-    noticias = {"titulo": "", "descricao": "", "imagem": "", "publicado_em": None, "url": url}
+    noticias = {"titulo": "", "descricao": "", "imagem": "", "publicado_em": None, "url": url, "portal":"g1"}
     try:
         response = requests.get(url, timeout=15)
         response.raise_for_status()  # levanta erro em 4xx/5xx

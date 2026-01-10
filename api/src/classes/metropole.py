@@ -11,6 +11,7 @@ def raspagemMetropole(url: str) -> dict | None:
         "imagem": "",
         "publicado_em": None,
         "url": url,
+        "portal":"metropole"
     }
 
     try:

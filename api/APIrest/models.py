@@ -7,9 +7,11 @@ class News_Informe(models.Model):
     imagem = models.URLField(blank=False, null=False)
     publicado_em = models.DateTimeField(null=True, blank=True)
     url = models.URLField(unique=True)
+    portal = models.CharField(max_length=20, default="desconhecido")
+    
 
     def __str__(self):
-        return self.url
+        return self.titulo + f" Portal - {self.portal}"
 
 
 
