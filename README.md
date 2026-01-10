@@ -1,22 +1,55 @@
 # 📰 Informe — Agregador de Notícias do Brasil
-Projeto que realiza raspagem de dados da web das últimas notícias de diversos portais (como G1 e CNN Brasil), com o objetivo de centralizar as informações em um só lugar.​
-Também foi construída uma API REST com o framework Django para disponibilizar os dados coletados.​
 
-**Objetivo**
-Centralizar e facilitar o acesso às últimas notícias de diferentes fontes, servindo como base para consultas, análises e integrações via API.​
+O **Informe** é uma API desenvolvida em **Django** que coleta e centraliza as últimas notícias de diversos portais brasileiros (como **G1** e **CNN Brasil**), retornando-as em formato **JSON**.  
+Os dados são obtidos por meio de **raspagem de conteúdo (web scraping)** com **BeautifulSoup** e servidos através de uma **API REST**, construída com **Django REST Framework (DRF)**.
 
-Funcionalidades (atual e planejado)
-- Coleta/raspagem de notícias em portais brasileiros (ex.: G1, CNN Brasil).​
+---
 
-- Padronização das informações (título, link, data/hora, fonte e resumo quando disponível).​
+## 🎯 Objetivo
 
-- API REST para consumo dos dados por aplicações externas.​
+O projeto tem como propósito **centralizar e facilitar o acesso** às últimas notícias publicadas em diferentes fontes, possibilitando:
 
-**Tecnologias**
-- Python​
+- Consultas via API.  
+- Análises e monitoramento de informação.  
+- Integração com outros sistemas (frontends, bots, dashboards, etc.).  
 
-- Django (backend)​
+---
 
-- Django REST Framework (API REST)​
+## ⚙️ Funcionalidades
 
-- SQLite (ambiente de desenvolvimento)
+### 🧩 Funcionalidades Atuais
+
+- **Coleta automática** das últimas notícias de portais brasileiros configurados (ex.: *G1*, *CNN Brasil*).  
+- **Padronização dos dados** armazenados: título, resumo, link, data/hora de publicação, fonte/portal e imagem (quando disponível).  
+- **API REST** com endpoints públicos para listar notícias e aplicar filtros, por exemplo:  
+  - `?portal=cnn` — retorna apenas notícias da CNN Brasil.  
+  - `?search=energia` — busca por termos específicos no título ou resumo.  
+
+### 🚧 Funcionalidades Planejadas
+
+- Adição de novas fontes e portais de notícias.  
+- Implementação de filtros avançados (por data, categoria, relevância, etc.).  
+- Documentação interativa dos endpoints (ex.: via **Swagger** ou **OpenAPI**).  
+
+---
+
+## 🕒 Atualização e Persistência dos Dados
+
+- A raspagem é executada automaticamente a cada **30 minutos**, buscando novas publicações nas fontes configuradas.  
+- As notícias são armazenadas por até **3 dias**. Um processo periódico remove conteúdos antigos, garantindo que apenas informações recentes permaneçam no banco de dados.  
+
+---
+
+## 🧱 Tecnologias Utilizadas
+
+- **Python** — linguagem principal.  
+- **Django** — framework backend para modelagem, ORM e interface administrativa.  
+- **Django REST Framework (DRF)** — criação e estruturação da API REST (endpoints, filtros, paginação).  
+- **BeautifulSoup** — extração e tratamento de dados via web scraping.  
+- **SQLite** — banco de dados utilizado no ambiente de desenvolvimento.  
+
+---
+
+## 🗺️ Próximos Passos
+
+No futuro, o projeto pretende disponibilizar um **frontend** que consuma essa API, exibindo as informações de forma interativa e amigável ao usuário.
