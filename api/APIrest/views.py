@@ -1,24 +1,22 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import generics, filters
 from .models import News_Informe
 from .serializer import News_Serializer
 
-class News_APIview_all(APIView):
-    def get(self, request):
-        news = News_Informe.objects.all()
-        serializer = News_Serializer(news, many=True)
-        return Response(serializer.data)
-    
-class News_Apiview_cnn(APIView):
-    def get(self, request):
-        news = News_Informe.objects.filter(portal="cnn")
-        serializer = News_Serializer(news, many=True)
-        return Response(serializer.data)
-    
-class News_Apiview_g1(APIView):
-    def get(self, request):
-        news = News_Informe.objects.filter(portal="g1")
-        serializer = News_Serializer(news, many=True)
-        return Response(serializer.data)
+class NoticiaListAPIView(generics.ListAPIView):
+    serializer_class = News_Serializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['titulo', 'descricao']
+    ordering_fields = ['publicado_em']  # ?ordering=publicado_em ou -publicado_em
+
+    def get_queryset(self):
+        qs = News_Informe.objects.all()
+        portal = self.request.query_params.get('portal')  # ?portal=cnn
+
+        if portal:
+            qs = qs.filter(portal=portal)
+
+        return qs
     
 
